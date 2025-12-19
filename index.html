@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>GrabVR Hub - Coding, Triggers & Community</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', Arial, sans-serif; background: #0f0f0f; color: #fff; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #212121;
+            border-bottom: 1px solid #333;
+            padding: 0 16px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+        .logo { font-size: 20px; font-weight: bold; color: #f00; }
+
+        /* Tabs */
+        .tabs {
+            position: fixed;
+            top: 56px;
+            width: 100%;
+            background: #212121;
+            display: flex;
+            overflow-x: auto;
+            padding: 0 16px;
+            z-index: 99;
+        }
+        .tab {
+            padding: 12px 24px;
+            white-space: nowrap;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        .tab.active { border-bottom: 3px solid #fff; font-weight: bold; }
+        .tab:hover { background: #333; }
+
+        /* Main Content */
+        main {
+            margin-top: 112px;
+            padding: 24px;
+        }
+        .section { display: none; }
+        .section.active { display: block; }
+
+        h1 { margin-bottom: 20px; font-size: 24px; }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 24px;
+        }
+        .video-card {
+            display: block;
+            cursor: pointer;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Perfect 16:9 ratio */
+            height: 0;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            border: none;
+        }
+        .fallback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .video-card:hover .fallback {
+            opacity: 1;
+        }
+        .video-info {
+            padding: 12px 0;
+        }
+        .video-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .video-info p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GrabVR Hub</div>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="tutorials">Tutorials (Coding & Triggers)</div>
+        <div class="tab" data-tab="official">Official Channel</div>
+        <div class="tab" data-tab="highlights">Community Highlights</div>
+    </div>
+
+    <main>
+        <!-- Tutorials Tab -->
+        <div id="tutorials" class="section active">
+            <h1>Coding Blocks & Triggers Tutorials (Dec 2025)</h1>
+            <div class="video-grid">
+
+                <a href="https://www.youtube.com/watch?v=Ed-Iz16pXko" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Ed-Iz16pXko" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>How To Make Laser Guns With Coding Blocks</h3>
+                        <p>Dec 11, 2025 • Awesome new coding feature tutorial!</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=hFZhRz7CHOg" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/hFZhRz7CHOg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>How To Make Trackers With Coding Blocks</h3>
+                        <p>Dec 13, 2025 • Build planes, cars, and advanced trackers.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=rDvnN2osSp8" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/rDvnN2osSp8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>How To Use Triggers - Basic to Advanced</h3>
+                        <p>Mar 2025 • Comprehensive classic triggers guide.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=jsn5YUg10bI" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/jsn5YUg10bI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Step-by-Step Tracker Tutorial (Triggers)</h3>
+                        <p>Apr 2025 • Detailed classic tracker build.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=kFsmELqq-t8" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kFsmELqq-t8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Working Key System with Triggers</h3>
+                        <p>Mar 2025 • Locked doors and key mechanics.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Official Tab -->
+        <div id="official" class="section">
+            <h1>Official GRAB Videos</h1>
+            <p>Latest from the developers (@grabvrgame)</p>
+            <div class="video-grid">
+
+                <a href="https://www.youtube.com/watch?v=PSNF_bGi1cQ" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/PSNF_bGi1cQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>GRAB - Code 101 - Loops (Official)</h3>
+                        <p>Dec 11, 2025 • Official introduction to loops in coding blocks.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=cAjNckLq5yI" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/cAjNckLq5yI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>First Steps with the Code Block! (Short)</h3>
+                        <p>Dec 6, 2025 • Quick teaser and basics of the new feature.</p>
+                    </div>
+                </a>
+
+            </div>
+            <p style="margin-top: 30px; text-align: center;">
+                <a href="https://www.youtube.com/@grabvrgame" target="_blank" style="color: #ff0000; font-weight: bold;">Visit Official GRAB Channel →</a>
+            </p>
+        </div>
+
+        <!-- Community Highlights Tab -->
+        <div id="highlights" class="section">
+            <h1>Community Highlights & Reactions</h1>
+            <p>Epic creations, update reactions, and player showcases</p>
+            <div class="video-grid">
+
+                <a href="https://www.youtube.com/watch?v=2oKTXcNhskQ" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/2oKTXcNhskQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>NEW CODING UPDATE GRAB VR!</h3>
+                        <p>Dec 12, 2025 • Community excitement and first reactions.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=O89vhbk41nQ" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/O89vhbk41nQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Grab just became way more advanced...</h3>
+                        <p>Dec 12, 2025 • Showcasing new coding possibilities.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=UuaD330Mnrk" target="_blank" class="video-card">
+                    <div class="video-wrapper">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/UuaD330Mnrk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="fallback">Click to watch on YouTube</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>57 TIPS ABOUT GRAB VR!</h3>
+                        <p>Nov 2025 • Ultimate community tips compilation.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
